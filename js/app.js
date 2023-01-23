@@ -1,3 +1,14 @@
+//Leer JSON
+
+fetch("../data/productos.json")
+.then(res => res.json())
+.then(data => {
+    for (const producto of data) {
+        console.log(producto.nombre)
+    }
+})
+
+
 //Recuperar botones Agregar Carrito en el DOM
 const botonAgregar = document.getElementsByClassName("botonAgregar");
 

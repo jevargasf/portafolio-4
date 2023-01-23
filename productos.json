@@ -1,122 +1,122 @@
 [
     {
         "id": 1,
-        "nombre": "",
+        "nombre": "Guitarra Fender Stratocaster Traditional 50s Made In Japan",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "La serie Made in Japan Traditional se creó fusionando la estética tradicional de Fender de la producción de instrumentos musicales con la sofisticada artesanía japonesa. El ADN ortodoxo de Fender se revive con la sólida calidad Made in Japan. Hecha en Japón, la Stratocaster tradicional de los años 50 tiene un cuerpo de basswood con acabado brillante. El mástil de arce en forma de “U” de radio de 9,5 ”con 21 trastes de estilo vintage proporciona la capacidad de interpretación clásica de la serie tradicional. El puente de trémolo sincronizado de estilo vintage de 6 selletas y las pastillas originales seleccionadas para la serie Traditional le brindan un tono vintage realista y musical. El ancho de la cejilla de diseño estrecho facilita el tocar. La artesanía sólida de la guitarra y la flexibilidad para satisfacer las necesidades de los intérpretes se reflejan en esta serie.",
+        "precio": 1249990,
+        "imagen": "./img/1"
     },
     {
         "id": 2,
-        "nombre": "",
+        "nombre": "Pack de Studio Focusrite Scarlett Solo 3rd Gen",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "No podrás encontrar un paquete de grabación más fiable y con mejor sonido. Scarlett Solo Studio ofrece a los cantantes y compositores la solución todo en uno más simple para un proceso de grabación de manera tranquilizadora. Desde el primer momento, obtienes una interfaz de audio Scarlett Solo USB, un micrófono de condensador, un cable de micrófono XLR de 3 metros, auriculares cerrados y software gratuito para que puedas comenzar a hacer música de inmediato. Entre las características de la Scarlett Solo se encuentran el preamplificador único de micrófono actualizado de tercera generación Scarlett, con un modo Air opcional para reproducir el efecto Air del preamplificador de micrófono ISA original de Focusrite, lo que dota a tus grabaciones de voz de un sonido más brillante y abierto. El micrófono de condensador CM25 MkIII te permite capturar grabaciones con calidad de estudio y fieles a la fuente original, mientras que los auriculares cerrados HP60 MkIII, con un diseño nuevo y mejorado, ofrecen una alta calidad de sonido y una comodidad duradera durante los trabajos de grabación y mezcla. Solo conecta tu guitarra a la entrada de instrumento de alto techo dinámico y empieza a grabar sin recortes ni distorsión no deseada, y vigila tu nivel de entrada con el intuitivo medidor con halos de ganancia. Equipada con conversores AD-DA de 24 bits/192 kHz de alto rendimiento, la Scarlett garantiza la misma calidad de sonido profesional en toda la gama de tercera generación. Además, las salidas balanceadas del Scarlett Solo no tienen zumbido al conectar monitores de estudio con entradas balanceadas, lo que se traduce en una reproducción de audio impecable. La Scarlett Solo está pensada para soportar tus días en la carretera, y se conecta directamente con tu Mac® o PC por cable USB, sin necesidad de alimentación externa. Tu paquete Scarlett Solo Studio incorpora todas las herramientas de software necesarias para empezar, incluidas dos exhaustivas estaciones de trabajo de audio digital: Ableton® Live Lite™ y Pro Tools® First Focusrite Creative Pack. Lo bastante intuitivo para los principiantes y lo bastante avanzado para inspirar creatividad real con efectos que suenan asombrosamente bien. Focusrite se ha asociado con Splice para ofrecer a los propietarios de una interfaz de tercera generación una suscripción gratuita de 3 meses a Splice Sounds al registrar una nueva cuenta de Splice. Splice Sounds ofrece millones de sonidos, bucles y presets de alta calidad, con nuevos lanzamientos a diario de tus productores, diseñadores de sonido y artistas favoritos. Los creadores utilizan Splice pera hacer todo tipo de música, incluidos temas pop líderes en las listas de éxitos, álbumes ganadores de premios Grammy, cintas de mezclas underground y bandas sonoras cinematográficas. Como es el caso con todos los productos Focusrite, también te beneficiarás de una garantía de dos años, un galardonado servicio de atención al cliente y la pertenencia a Plug-in Collective, que ofrece descargas de software gratuitas y generosos descuentos.",
+        "precio": 229900,
+        "imagen": "./img/2.webp"
     },
     {
         "id": 3,
-        "nombre": "",
+        "nombre": "Amplificador de guitarra VOX AC30C2X - 30W",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "Para aquellos que desean más potencia, el AC30 amplía el cautivador sonido de su hermano pequeño duplicando la potencia. Empleando cuatro válvulas de potencia EL84 que impulsan a AC30 Custom con 30 Vatios, ofrece un sonido notable a través de un par de altavoces de 12 Blue Alnico. Capaz de producir tanto sonidos limpios como los timbres más saturados, el personal sonido de AC30 Custom se adaptará perfectamente a tu estilo de interpretación, dando como resultado un sonido realmente tuyo. Tal vez el amplificador más emblemático en el pedigrí de VOX, el AC30 se ganó su lugar en la historia como el amplificador de la Invasión Británica. Desde entonces, el AC30 se ha mantenido como la elección perfecta de los artistas más influyentes, que han confiado en su sonido único para amplificar sus ideas.",
+        "precio": 1359900,
+        "imagen": "./img/3.webp"
     },
     {
         "id": 4,
-        "nombre": "",
+        "nombre": "Pedal Ibanez TSMINI - Tube Screamer",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "Entendemos que necesitas espacio, por eso ahora el legendario Tube Screamer está disponible en una versión mini. Originalmente fué uno de los primeros overdrive de la compañía Ibanez. Posee circuitería analógica en un 100%, conmutación True Bypass, entre otras características.",
+        "precio": 59990,
+        "imagen": "./img/4.webp"
     },
     {
         "id": 5,
-        "nombre": "",
+        "nombre": "Pedal de efecto Boss Blues Driver BD-2 azul",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
+        "descripcion": "Este pedal de efectos permite alterar el sonido de tu instrumento y, de esta manera, explorar nuevas posibilidades sonoras. ¡Crea con mayor libertad y disfruta de la música! Amplia gama de sonidos. Este pedal cuenta con 2 efectos que te permitirán crear nuevos sonidos y elevar tu música. ¡Anímate a explorar sonoridades diferentes!",
+        "precio": 139990,
         "imagen": ""
     },
     {
         "id": 6,
-        "nombre": "",
+        "nombre": "Pedal de efecto Electro-Harmonix Small Clone negro",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "Este pedal de efectos permite alterar el sonido de tu instrumento y, de esta manera, explorar nuevas posibilidades sonoras. ¡Crea con mayor libertad y disfruta de la música!",
+        "precio": 102990,
+        "imagen": "./img/6.webp"
     },
     {
         "id": 7,
-        "nombre": "",
+        "nombre": "Pedal Análogo Delay Deluxe Memory Boy Electro Harmonix",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "El Deluxe Memory Boy es el más reciente de la familia Memory Man. Los IC de calidad ofrecen sonidos análogos cálidos y orgánicos mientras que el tap tempo te permite estar siempre sincronizado con el ritmo. Elige cinco divisiones de notas para las variaciones metronómicas. Se pueden configurar modulaciones dulces mientras la entrada del pedal de expresión te da un control externo. El Deluxe Memory Boy es el delay análogo más flexible jamás diseñado. En el estudio o en vivo, el Deluxe Memory Boy se convertirá en un pedal fundamental en tu arsenal. El Deluxe Memory Boy es un delay verdaderamente análogo con la habilidad de poder percutir el tiempo de delay (tap tempo). El Deluxe Memory Boy (DXMB) también incluye dos tipos de modulación del tiempo de delay, un loop de efectos en la ruta del feedback del bloque de delay, un control de la ganancia de entrada, división del tap tempo para asignarle un valor de nota al delay y control opcional por medio de un pedal de expresión de cuatro parámetros: Tiempo de Delay, Feedback, Profundidad de la Modulación y Velocidad de la Modulación. El DXMB tiene true bypass (cuando se desactiva, el sistema de circuitos queda pasado por alto).",
+        "precio": 229900,
+        "imagen": "./img/7.webp"
     },
     {
         "id": 8,
-        "nombre": "",
+        "nombre": "Squier Guitarra Eléctrica Squier Classic Vibe 60' Jazzmaster",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "La Classic Vibe '60s Jazzmaster® es un fiel y llamativo homenaje a la icónica Fender favorita, produciendo un innegable tono Jazzmaster cortesía de sus pastillas duales de alnico de bobina simple diseñadas por Fender. Las características para el guitarrista incluyen un perfil de mástil delgado y cómodo en forma de C con un diapasón de radio de 9,5 fácil de tocar y trastes estrechos, un sistema de trémolo de estilo vintage para efectos expresivos de flexión de cuerdas y un puente flotante con monturas de barril para una sólida estabilidad de las cuerdas. Este modelo de Squier también cuenta con marcas en la pala inspiradas en los años 60, herrajes niquelados y un acabado del mástil brillante con tintes vintage que le dan un aire de la vieja escuela.",
+        "precio": 549990,
+        "imagen": "./img/8.webp"
     },
     {
         "id": 9,
-        "nombre": "",
+        "nombre": "Fender Jazzmaster® American Performer",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "Nacida en Corona, California, la elegante Jazzmaster American Performer brinda el tono excepcional y la sensación refinada que esperas de una Fender auténtica, con nuevas características orientadas a inspirarte aún más.",
+        "precio": 1699990,
+        "imagen": "./img/9.jpg"
     },
     {
         "id": 10,
-        "nombre": "",
+        "nombre": "Fender Jazzmaster® 50's Journeyman Relic Custom Shop",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "The original Jazzmaster® was created for jazz guitarists, but it made big waves in surf rock instead. This characteristic twist of fate is embodied in the Jazzmaster® itself, with its revolutionary offset waist, newly designed tremolo system and new pickups with a unique wiring and switching system---a significant departure from Teles and Strats. Celebrating innovation while honoring a time-tested classic, Fender® Custom Shop finishes this guitar with a Journeyman Relic® lacquer coating with the scars of a treasured guitar, played for decades. Melding original Jazzmaster® tone with modern feel, the 50’s Journeyman Relic® is based on a two-piece select ash body and tinted maple riftsawn neck with a “57 Soft V”-shaped neck profile---along with modern player features like the stable, intonatable RSD Jazzmaster® bridge and 9.5”-radius fingerboard. Other features include 21 6105 frets, vintage-style Jazzmaster® wiring, hand-wound Jazzmaster® pickups, gold anodized pickguard, vintage-style tuning machines, bone nut and wing string tree with metal spacer. Includes deluxe hardshell case, strap and Certificate of Authenticity.",
+        "precio": 3999990,
+        "imagen": "./img/10.jpeg"
     },
     {
         "id": 11,
-        "nombre": "",
+        "nombre": "Squier Jaguar® '70s Classic Vibe",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "La nueva Jaguar '70s Classic Vibe de Squier lleva también la marca distintiva del modelo, como la escala de 24”, selector y controles de doble circuito, puente vibrato flotante y acabados clásicos. Entre las características se incluyen un mástil de arce con acabado brillante estilo vintage, diapasón de laurel indio con radio de 9,5” con 22 trastes medium jumbo y puntos incrustados en pergamino, golpeador en carey (Tortoiseshell), cápsulas de bobina simple Jaguar, selector de interruptor del circuito y circuito de tono, interruptores on/off para cápsulas, botones de control tipo falda en negro (circuito lead) y potenciómetro tipo rueda negros (circuito rhythm), puente estilo vintage y vibrato flotante sin bloqueo con palanca del trémolo estilo vintage, clavijeros en cromo estilo vintage y herrajes en cromo.",
+        "precio": 639990,
+        "imagen": "./img/11.jpeg"
     },
     {
         "id": 12,
-        "nombre": "",
+        "nombre": "Pedal de Reverb Strymon BigSky Multidimensional",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "The Strymon BigSky Multidimensional Reverb multi-effects pedal offers a wide assortment of reverb effects currently on the market. Twelve different types of reverb are available with a twist of a knob, and you can deeply edit the effects and store them in the 300 onboard preset slots. And an incredibly powerful SHARC DSP powers the pedal for the best sound quality possible. The Strymon BigSky Multidimensional reverb pedal is powerful enough to be the last reverb pedal you’ll ever need.",
+        "precio": 505000,
+        "imagen": "./img/12.jpeg"
     },
     {
         "id": 13,
-        "nombre": "",
+        "nombre": "Amplificador de guitarra Roland JC-22 - 30W Jazz Chorus",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "El JC-22 Jazz Chorus ofrece el clásico sonido limpio JC de Roland y el famoso efecto Dimensional Space Chorus en un amplificador compacto que es perfecto para tocar en casa. Con este versátil amplificador estéreo disfrutas de las características esenciales del popular JC-40 en una escala aún más reducida, y además es fantástico para grabaciones e interpretaciones intimistas. Una reverb de alta calidad complementa el chorus integrado, y también incluye una entrada estéreo en el panel frontal para conectar modeladores, multiefectos y pedales estéreo. El JC-22 está fabricado con los mismos estándares de sonido y resistencia que definen a esta veterana serie de amplificadores.",
+        "precio": 609900,
+        "imagen": "./img/13.webp"
     },
     {
         "id": 14,
-        "nombre": "",
+        "nombre": "Truetone Jekyll and Hyde V3",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "Cada canal se puede configurar en modo True Bypass o Buffered, a través de switches internos. El modo con Buffered utiliza nuestro legendario circuito Pure Tone. Cuenta con el footswitch Forever de diseño custom con capacidad para 10 millones de golpes. Este interactúa con relés que tienen contactos enchapados en oro. Entradas y salidas separadas para que cada lado del pedal se pueda utilizar en un dispositivo de loop o switcher midi. También es posible invertir el orden de los efectos con un cable de conexión. Es como tener 2 pedales en 1 carcasa. Tamaño pequeño, amigable con tu pedalboard, con jacks frontales. Tamaño más pequeño que 2 MXR o pedales de tamaño similar. Viene en una funda de terciopelo negro adentro de la caja.",
+        "precio": 180000,
+        "imagen": "./img/14.jpeg"
     },
     {
         "id": 15,
-        "nombre": "",
+        "nombre": "Pedal de Overdrive Fulltone OCD V2",
         "stock": 5,
-        "descripcion": "",
-        "precio": 9990,
-        "imagen": ""
+        "descripcion": "Fulltone OCD v2 es la más reciente versión del overdrive boutique más vendido de la historia, ahora equipado con interesantes novedades: Buffer de Salida, JFET 2N5457 y el original Interruptor Enhanced Bypass / True-Bypass.",
+        "precio": 145000,
+        "imagen": "./img/15.webp"
     }
 ]

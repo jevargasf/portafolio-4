@@ -1,11 +1,26 @@
-//Leer JSON
+//Leer JSON con API fetch
 
 fetch("../data/productos.json")
 .then(res => res.json())
 .then(data => {
-    for (const producto of data) {
-        console.log(producto.nombre)
-    }
+    return data.map((i)=>{
+        let tarjeta = document.createElement('div')
+        tarjeta.setAttribute("class", "col d-flex align-items-lg-stretch")
+        tarjeta.innerHTML = `
+            <div class="card">
+                <img src="./img/producto1_strato.webp" class="card-img-top p-3" alt="card-grid-image">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title producto1" id="producto1" >Guitarra Fender Stratocaster Traditional 50s Made In Japan</h5>
+                    <h4 class="card-title" id="precio1">$1.249.990</h4>
+                    <div class="d-grid gap-2 d-md-flex justify-content-around mt-auto">
+                        <a class="btn btn-secondary" data-bs-toggle="modal" href="#modalFicha1" role="button">Ver más</a>
+                        <button type="button" class="btn btn-primary botonAgregar" id="1" value="1">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        `
+        document.body.appendChild(tarjeta)
+    })
 })
 
 

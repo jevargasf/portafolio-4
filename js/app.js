@@ -1,28 +1,89 @@
+const contTarjetas = document.getElementById("contenedorTarjetas")
+const tarjeta = document.getElementById("templateTarjetas").content
+console.log(tarjeta)
+const fragment = document.createDocumentFragment()
+
 //Leer JSON con API fetch
 
 fetch("../data/productos.json")
 .then(res => res.json())
 .then(data => {
-    return data.map((i)=>{
-        let tarjeta = document.createElement('div')
-        tarjeta.setAttribute("class", "col d-flex align-items-lg-stretch")
-        tarjeta.innerHTML = `
-            <div class="card">
-                <img src="./img/producto1_strato.webp" class="card-img-top p-3" alt="card-grid-image">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title producto1" id="producto1" >Guitarra Fender Stratocaster Traditional 50s Made In Japan</h5>
-                    <h4 class="card-title" id="precio1">$1.249.990</h4>
-                    <div class="d-grid gap-2 d-md-flex justify-content-around mt-auto">
-                        <a class="btn btn-secondary" data-bs-toggle="modal" href="#modalFicha1" role="button">Ver más</a>
-                        <button type="button" class="btn btn-primary botonAgregar" id="1" value="1">Agregar al carrito</button>
+    return data.forEach((i)=>{
+        //Tarjetas productos
+
+        document.getElementsByClassName("tarjetaProducto").textContent = i
+        const clone = tarjeta.cloneNode(true)
+        fragment.appendChild(clone);
+
+
+
+
+
+       // tarjeta.setAttribute("class", "col d-flex align-items-lg-stretch")
+
+ /*       document.getElementById("contenedorTarjetas").appendChild(tarjeta);
+        //Modal productos
+        let modal = document.createElement('div');
+        modal.setAttribute("class", "modal");
+        modal.innerHTML = `
+                <div class="modal fade" id="modalFicha${i.id}" aria-hidden="true" aria-labelledby="modalFicha${i.id}" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tiendita de Música</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row  pt-5 pb-5 px-5">
+                <div class="col-8 d-flex align-items-lg-stretch">
+                    <div class="card">
+                    <div class="row g-0">
+                        <div class="col-4 col-sm-4">
+                        <img src="${i.imagen}" class="img-fluid w-100 p-3" alt="card-horizontal-image">
+                        </div>
+                        <div class="col-8 col-sm-8">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">${i.nombre}</h5>
+                            <h4 class="card-title">${i.precio}</h4>
+                            <p class="card-text">${i.descripcion}</p>
+                                    </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
+                <div class="col-4">
+                    <div class="card">
+                    <div class="card-header">
+                        Stock: Quedan ${i.stock} disponibles.
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Despacho a todo el país</h5>
+                        <p class="card-text">Paga en hasta 12 cuotas sin interés.</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Devolución gratis. Tienes hasta 30 días desde que lo recibes.
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+            </div>
+            </div>
+        </div>
+        </div>
         `
-        document.body.appendChild(tarjeta)
+        document.body.appendChild(modal);*/
+
     })
+    
 })
 
+contTarjetas.appendChild(fragment)
 
 //Recuperar botones Agregar Carrito en el DOM
 const botonAgregar = document.getElementsByClassName("botonAgregar");

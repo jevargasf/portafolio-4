@@ -5,7 +5,7 @@
         "stock": 5,
         "descripcion": "La serie Made in Japan Traditional se creó fusionando la estética tradicional de Fender de la producción de instrumentos musicales con la sofisticada artesanía japonesa. El ADN ortodoxo de Fender se revive con la sólida calidad Made in Japan. Hecha en Japón, la Stratocaster tradicional de los años 50 tiene un cuerpo de basswood con acabado brillante. El mástil de arce en forma de “U” de radio de 9,5 ”con 21 trastes de estilo vintage proporciona la capacidad de interpretación clásica de la serie tradicional. El puente de trémolo sincronizado de estilo vintage de 6 selletas y las pastillas originales seleccionadas para la serie Traditional le brindan un tono vintage realista y musical. El ancho de la cejilla de diseño estrecho facilita el tocar. La artesanía sólida de la guitarra y la flexibilidad para satisfacer las necesidades de los intérpretes se reflejan en esta serie.",
         "precio": 1249990,
-        "imagen": "./img/1"
+        "imagen": "./img/1.webp"
     },
     {
         "id": 2,
@@ -37,7 +37,7 @@
         "stock": 5,
         "descripcion": "Este pedal de efectos permite alterar el sonido de tu instrumento y, de esta manera, explorar nuevas posibilidades sonoras. ¡Crea con mayor libertad y disfruta de la música! Amplia gama de sonidos. Este pedal cuenta con 2 efectos que te permitirán crear nuevos sonidos y elevar tu música. ¡Anímate a explorar sonoridades diferentes!",
         "precio": 139990,
-        "imagen": ""
+        "imagen": "./img/5.webp"
     },
     {
         "id": 6,

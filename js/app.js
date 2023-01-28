@@ -1,7 +1,5 @@
-const contTarjetas = document.getElementById("contenedorTarjetas")
-const tarjeta = document.getElementById("templateTarjetas").content
-console.log(tarjeta)
-const fragment = document.createDocumentFragment()
+
+const infoProductos = []
 
 //Leer JSON con API fetch
 
@@ -9,11 +7,24 @@ fetch("../data/productos.json")
 .then(res => res.json())
 .then(data => {
     return data.forEach((i)=>{
-        //Tarjetas productos
+        infoProductos.push(i)
+    })
+    
+})
 
-        document.getElementsByClassName("tarjetaProducto").textContent = i
+function tarjetasDOM (arr) {
+    const temp = document.getElementsByTagName("template")[0]
+    const clon = temp.content.cloneNode(true)
+    document.getElementById("contenedorTarjetas").appendChild(clon)
+}
+
+tarjetasDOM(infoProductos)
+
+ //Tarjetas productos
+
+        /*document.getElementsByClassName("tarjetaProducto").textContent = i
         const clone = tarjeta.cloneNode(true)
-        fragment.appendChild(clone);
+        fragment.appendChild(clone);*/
 
 
 
@@ -79,11 +90,15 @@ fetch("../data/productos.json")
         `
         document.body.appendChild(modal);*/
 
-    })
-    
-})
 
-contTarjetas.appendChild(fragment)
+
+
+
+
+
+
+
+
 
 //Recuperar botones Agregar Carrito en el DOM
 const botonAgregar = document.getElementsByClassName("botonAgregar");

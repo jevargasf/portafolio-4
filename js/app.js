@@ -12,44 +12,51 @@ fetch("../data/productos.json")
 })
 
 function templateProductos (datos) {
-    const container = document.getElementById("contenedorTarjetas")
-    const template = document.getElementById("templateTarjetas").content
-    const fragment = document.createDocumentFragment()
+    // Template tarjetas productos
+    const containerTarjetas = document.getElementById("contenedorTarjetas")
+    const templateTarjetas = document.getElementById("templateTarjetas").content
+    const fragmentTarjetas = document.createDocumentFragment()
     
     datos.forEach(item => {
-        let nombre = template.getElementById("nombre")
-        let precio = template.getElementById("precio")
-        let img = template.getElementById("img")
-        let button = template.getElementById("button")
+        let nombre = templateTarjetas.getElementById("nombre")
+        let precio = templateTarjetas.getElementById("precio")
+        let img = templateTarjetas.getElementById("img")
+        let button = templateTarjetas.getElementById("button")
         nombre.textContent = item.nombre
         precio.textContent = item.precio
         img.src = item.imagen
         button.dataset.id = item.id
-        const firstClone = template.cloneNode(true)
-        fragment.appendChild(firstClone)
+        const clonTarjeta = templateTarjetas.cloneNode(true)
+        fragmentTarjetas.appendChild(clonTarjeta)
     })
 
-    container.appendChild(fragment)
+    containerTarjetas.appendChild(fragmentTarjetas)
 
+    // Template modal productos
+
+    const containerModal = document.getElementById("contenedorModal")
+    const templateModal = document.getElementById("templateModal").content
+    const fragmentModal = document.createDocumentFragment()
+
+    datos.forEach(item => {
+        let nombreModal = templateModal.getElementById("nombreModal")
+        let precioModal = templateModal.getElementById("precioModal")
+        let descripcionModal = templateModal.getElementById("descripcionModal")
+        let imgModal = templateModal.getElementById("imgModal")
+        let stockModal = templateModal.getElementById("stockModal")
+        //let botonModal = templateModal.getElementById("")
+        nombreModal.textContent = item.nombre
+        precioModal.textContent = item.precio
+        descripcionModal.textContent = item.descripcion
+        imgModal.src = item.imagen
+        stockModal.textContent = `Stock: Quedan ${item.stock} disponibles.`
+        const clonModal = templateModal.cloneNode(true)
+        fragmentModal.appendChild(clonModal)
+    })
+
+    containerModal.appendChild(fragmentModal)
 }
 
-
-function getData() {
-    }
-
-
-
- //Tarjetas productos
-
-        /*document.getElementsByClassName("tarjetaProducto").textContent = i
-        const clone = tarjeta.cloneNode(true)
-        fragment.appendChild(clone);*/
-
-
-
-
-
-       // tarjeta.setAttribute("class", "col d-flex align-items-lg-stretch")
 
  /*       document.getElementById("contenedorTarjetas").appendChild(tarjeta);
         //Modal productos

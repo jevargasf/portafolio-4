@@ -1,24 +1,43 @@
-
-const infoProductos = []
+let infoProductos = []
 
 //Leer JSON con API fetch
 
 fetch("../data/productos.json")
 .then(res => res.json())
 .then(data => {
-    return data.forEach((i)=>{
-        infoProductos.push(i)
+    templateProductos(data);
     })
-    
+.catch(function (err) {
+    console.log('error: ' + err)
 })
 
-function tarjetasDOM (arr) {
-    const temp = document.getElementsByTagName("template")[0]
-    const clon = temp.content.cloneNode(true)
-    document.getElementById("contenedorTarjetas").appendChild(clon)
+function templateProductos (datos) {
+    const container = document.getElementById("contenedorTarjetas")
+    const template = document.getElementById("templateTarjetas").content
+    const fragment = document.createDocumentFragment()
+    
+    datos.forEach(item => {
+        let nombre = template.getElementById("nombre")
+        let precio = template.getElementById("precio")
+        let img = template.getElementById("img")
+        let button = template.getElementById("button")
+        nombre.textContent = item.nombre
+        precio.textContent = item.precio
+        img.src = item.imagen
+        button.dataset.id = item.id
+        const firstClone = template.cloneNode(true)
+        fragment.appendChild(firstClone)
+    })
+
+    container.appendChild(fragment)
+
 }
 
-tarjetasDOM(infoProductos)
+
+function getData() {
+    }
+
+
 
  //Tarjetas productos
 

@@ -1,5 +1,3 @@
-let infoProductos = []
-
 //Leer JSON con API fetch
 
 fetch("../data/productos.json")
@@ -12,12 +10,13 @@ fetch("../data/productos.json")
 })
 
 function templateProductos (datos) {
-    // Template tarjetas productos
+    // Template productos
     const containerTarjetas = document.getElementById("contenedorTarjetas")
     const templateTarjetas = document.getElementById("templateTarjetas").content
     const fragmentTarjetas = document.createDocumentFragment()
     
     datos.forEach(item => {
+    // Tarjetas
         let nombre = templateTarjetas.getElementById("nombre")
         let precio = templateTarjetas.getElementById("precio")
         let img = templateTarjetas.getElementById("img")
@@ -29,6 +28,7 @@ function templateProductos (datos) {
         button.dataset.id = item.id
         btnVerMas.href = "#modalFicha"+item.id
 
+    // Modals
         let modal = templateTarjetas.querySelector('.modal.fade')
         let nombreModal = templateTarjetas.getElementById("nombreModal")
         let precioModal = templateTarjetas.getElementById("precioModal")
@@ -48,102 +48,15 @@ function templateProductos (datos) {
 
     containerTarjetas.appendChild(fragmentTarjetas)
 
-    // Template modal productos
-
-  /*  const containerModal = document.getElementById("contenedorModal")
-    const templateModal = document.getElementById("templateModal").content
-    const fragmentModal = document.createDocumentFragment()
-
-    datos.forEach(item => {
-        let nombreModal = templateModal.getElementById("nombreModal")
-        let precioModal = templateModal.getElementById("precioModal")
-        let descripcionModal = templateModal.getElementById("descripcionModal")
-        let imgModal = templateModal.getElementById("imgModal")
-        let stockModal = templateModal.getElementById("stockModal")
-        //let botonModal = templateModal.getElementById("")
-        nombreModal.textContent = item.nombre
-        precioModal.textContent = item.precio
-        descripcionModal.textContent = item.descripcion
-        imgModal.src = item.imagen
-        stockModal.textContent = `Stock: Quedan ${item.stock} disponibles.`
-        const clonModal = templateModal.cloneNode(true)
-        fragmentModal.appendChild(clonModal)
-    })
-
-    containerModal.appendChild(fragmentModal)*/
 }
 
-
- /*       document.getElementById("contenedorTarjetas").appendChild(tarjeta);
-        //Modal productos
-        let modal = document.createElement('div');
-        modal.setAttribute("class", "modal");
-        modal.innerHTML = `
-                <div class="modal fade" id="modalFicha${i.id}" aria-hidden="true" aria-labelledby="modalFicha${i.id}" tabindex="-1">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Tiendita de Música</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <div class="row  pt-5 pb-5 px-5">
-                <div class="col-8 d-flex align-items-lg-stretch">
-                    <div class="card">
-                    <div class="row g-0">
-                        <div class="col-4 col-sm-4">
-                        <img src="${i.imagen}" class="img-fluid w-100 p-3" alt="card-horizontal-image">
-                        </div>
-                        <div class="col-8 col-sm-8">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">${i.nombre}</h5>
-                            <h4 class="card-title">${i.precio}</h4>
-                            <p class="card-text">${i.descripcion}</p>
-                                    </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="card">
-                    <div class="card-header">
-                        Stock: Quedan ${i.stock} disponibles.
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Despacho a todo el país</h5>
-                        <p class="card-text">Paga en hasta 12 cuotas sin interés.</p>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Devolución gratis. Tienes hasta 30 días desde que lo recibes.
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-            </div>
-            </div>
-        </div>
-        </div>
-        `
-        document.body.appendChild(modal);*/
-
-
-
-
-
-
-
-
-
-
-
+// Boton agregar producto
 //Recuperar botones Agregar Carrito en el DOM
-const botonAgregar = document.getElementsByClassName("botonAgregar");
+
+document.addEventListener('click',e => {console.log(e.target.dataset.id)})
+
+/*
+
 
 //Contador de lista productos
 let contador = 0;
@@ -332,4 +245,4 @@ function aplicaDescuento (arr) {
     });
 };
 
-
+*/

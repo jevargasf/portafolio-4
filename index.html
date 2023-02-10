@@ -155,10 +155,6 @@
 
 </div>
 
-<!-- Modal productos -->
-<div id="contenedorModal"></div>
-
-
 <!-- Footer -->
 <footer>
   <div class="text-center p-4 text-secondary" style="background-color: rgba(0, 0, 0, 0.05);">
@@ -178,16 +174,14 @@
         <h5 class="card-title nombre" id="nombre"></h5>
         <h4 class="card-title precio" id="precio"></h4>
         <div class="d-grid gap-2 d-md-flex justify-content-around mt-auto">
-            <a class="btn btn-secondary" data-bs-toggle="modal" href="#modalFicha" role="button">Ver más</a>
-            <button type="button" class="btn btn-primary botonAgregar" id="button" value="1">Agregar al carrito</button>
+            <a class="btn btn-secondary" data-bs-toggle="modal" href="#" role="button" id="btnVerMas">Ver más</a>
+            <button type="button" class="btn btn-primary botonAgregar" id="button">Agregar al carrito</button>
         </div>
     </div>
   </div>
 </div>
-</template>
 
   <!-- Modal productos -->
-  <template id="templateModal">
   <div class="modal fade" id="modalFicha" aria-hidden="true" aria-labelledby="modalFicha" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">

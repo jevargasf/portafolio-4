@@ -22,10 +22,26 @@ function templateProductos (datos) {
         let precio = templateTarjetas.getElementById("precio")
         let img = templateTarjetas.getElementById("img")
         let button = templateTarjetas.getElementById("button")
+        let btnVerMas = templateTarjetas.getElementById("btnVerMas")
         nombre.textContent = item.nombre
         precio.textContent = item.precio
         img.src = item.imagen
         button.dataset.id = item.id
+        btnVerMas.href = "#modalFicha"+item.id
+
+        let modal = templateTarjetas.querySelector('.modal.fade')
+        let nombreModal = templateTarjetas.getElementById("nombreModal")
+        let precioModal = templateTarjetas.getElementById("precioModal")
+        let descripcionModal = templateTarjetas.getElementById("descripcionModal")
+        let imgModal = templateTarjetas.getElementById("imgModal")
+        let stockModal = templateTarjetas.getElementById("stockModal")
+        modal.id = 'modalFicha'+item.id
+        nombreModal.textContent = item.nombre
+        precioModal.textContent = item.precio
+        descripcionModal.textContent = item.descripcion
+        imgModal.src = item.imagen
+        stockModal.textContent = `Stock: Quedan ${item.stock} disponibles.`
+
         const clonTarjeta = templateTarjetas.cloneNode(true)
         fragmentTarjetas.appendChild(clonTarjeta)
     })
@@ -34,7 +50,7 @@ function templateProductos (datos) {
 
     // Template modal productos
 
-    const containerModal = document.getElementById("contenedorModal")
+  /*  const containerModal = document.getElementById("contenedorModal")
     const templateModal = document.getElementById("templateModal").content
     const fragmentModal = document.createDocumentFragment()
 
@@ -54,7 +70,7 @@ function templateProductos (datos) {
         fragmentModal.appendChild(clonModal)
     })
 
-    containerModal.appendChild(fragmentModal)
+    containerModal.appendChild(fragmentModal)*/
 }
 
 

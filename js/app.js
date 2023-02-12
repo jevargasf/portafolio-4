@@ -57,11 +57,15 @@ let carrito = {
     getData: function (datos) { datos.forEach(item => this.dataProductos.push(item)) },
     botonAgregar: function (e) {
        if (e.target.className === 'btn btn-primary botonAgregar') {
-            console.log(this.getData)
-            // que el programa tome el dataset.id y lo compare con el arreglo de objetos data
-            // que extraiga el objeto con id correspondiente
-            // que pushee el objeto identificado al arreglo carrito
-            console.log(e.target)
+            this.dataProductos.forEach(item => {
+                if (item.id == e.target.dataset.id) {
+                    let producto = {}
+                    producto["id"] = item.id
+                    producto["nombre"] = item.nombre
+                    producto["precio"] = item.precio
+                    this.productos.push(producto)
+                }
+            })
         }
     }
 }

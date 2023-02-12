@@ -63,7 +63,9 @@ let carrito = {
                     producto["id"] = item.id
                     producto["nombre"] = item.nombre
                     producto["precio"] = item.precio
+                    producto["cantidad"] = 1
                     this.productos.push(producto)
+                    e.target.disabled = true
                 }
             })
         }
@@ -74,7 +76,57 @@ let carrito = {
 //Recuperar botones Agregar Carrito en el DOM
 
     const contenedorBotones = document.getElementById("contenedorTarjetas")
-    contenedorBotones.addEventListener('click', e => {carrito.botonAgregar(e)})
+    contenedorBotones.addEventListener('click', e => {carrito.botonAgregar(e); carritoDOM(carrito.productos, e)})
+
+// DOM carrito
+
+const footerTotal = document.getElementById("totalCarrito");
+const medalla = document.getElementById("medalla"); 
+const inputDcto = document.getElementById("inputDescuento");
+
+
+function carritoDOM (arr, e) {
+    const cuerpoCarrito = document.getElementById("cuerpoCarrito"); 
+    const filaNuevoProducto = document.createElement("tr");
+    cuerpoCarrito.appendChild(filaNuevoProducto);
+    // Nueva fila en carrito
+    arr.forEach(item => {
+        if (item.id == e.target.dataset.id && item.cantidad === 1) {
+            filaNuevoProducto.innerHTML += `
+                <td>${item.nombre}</td>
+                <td class="cantidades p-auto" id="cantidadProducto${item.id}">${item.cantidad}</td>
+                <td><button type="button" class="btn btn-danger botonQuitar p-1" id="Q${item.id}">-</button>
+                <button type="button" class="btn btn-info p-1 botonAgregar" id="A${item.id}" value="1">+</button></td>
+                <td id="totalProducto${item.id}">${item.precio}</td>
+                `;   
+
+            footerTotal.innerHTML = 
+                `
+                <tr>
+                <td>Total</td>
+                <td>sumaCantidades(arr)</td>
+                <td></td>
+                <td id="sumaTotal">sumaTotal(arr)</td>
+                </tr>
+                `            
+                ;
+            medalla.innerHTML = `
+                <span class="material-symbols-outlined">shopping_cart</span>sumaCantidades(arr)
+                `;
+            }
+        if (inputDcto.innerHTML === "") {
+            inputDcto.innerHTML =
+                `
+                <td colspan="4">
+                <div class="input-group">
+                <input type="text" class="form-control" placeholder="Ingresa código descuento" aria-label="Username" aria-describedby="input-group-button-right" id="textoDescuento">
+                <button type="button" class="btn btn-outline-secondary" id="input-group-button-right">Aplicar</button>
+                </div>
+                </td>
+                `
+            }
+        })
+    }
 
 
 /*

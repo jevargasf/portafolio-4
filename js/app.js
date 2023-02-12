@@ -4,7 +4,7 @@ fetch("../data/productos.json")
 .then(res => res.json())
 .then(data => {
     templateProductos(data);
- //   agregarCarrito(data);
+    carrito.getData(data);
     })
 .catch(function (err) {
     console.log('error: ' + err)
@@ -51,20 +51,26 @@ function templateProductos (datos) {
 
 }
 
-let carrito = []
-
-// Boton agregar producto
-//Recuperar botones Agregar Carrito en el DOM
-
-    const contenedorBotones = document.getElementById("contenedorTarjetas")
-    contenedorBotones.addEventListener('click', e => {
-        if (e.target.className === 'btn btn-primary botonAgregar') {
+let carrito = {
+    productos: [],
+    dataProductos: [],
+    getData: function (datos) { datos.forEach(item => this.dataProductos.push(item)) },
+    botonAgregar: function (e) {
+       if (e.target.className === 'btn btn-primary botonAgregar') {
+            console.log(this.getData)
             // que el programa tome el dataset.id y lo compare con el arreglo de objetos data
             // que extraiga el objeto con id correspondiente
             // que pushee el objeto identificado al arreglo carrito
             console.log(e.target)
         }
-    })
+    }
+}
+
+// Boton agregar producto
+//Recuperar botones Agregar Carrito en el DOM
+
+    const contenedorBotones = document.getElementById("contenedorTarjetas")
+    contenedorBotones.addEventListener('click', e => {carrito.botonAgregar(e)})
 
 
 /*

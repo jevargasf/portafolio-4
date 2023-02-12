@@ -69,14 +69,34 @@ let carrito = {
                 }
             })
         }
+    },
+    botonSumar: function (e) {
+        if (e.target.className === 'btn btn-info p-1 botonAgregar') {
+            for (item of this.productos) {
+                if (item.id == e.target.id.slice(1)) {
+                    item.cantidad++
+                    console.log(item)
+                }
+            }
+        }
+    },
+    botonQuitar: function (e) {
+        if (e.target.className === 'btn btn-danger botonQuitar p-1') {
+            for (item of this.productos) {
+                if (item.id == e.target.id.slice(1)) {
+                    item.cantidad--
+                    console.log(item)
+                }
+            }
+        }
     }
 }
 
 // Boton agregar producto
 //Recuperar botones Agregar Carrito en el DOM
 
-    const contenedorBotones = document.getElementById("contenedorTarjetas")
-    contenedorBotones.addEventListener('click', e => {carrito.botonAgregar(e); carritoDOM(carrito.productos, e)})
+const contenedorBotones = document.getElementById("contenedorTarjetas")
+contenedorBotones.addEventListener('click', e => {carrito.botonAgregar(e); carritoDOM(carrito.productos, e)})
 
 // DOM carrito
 
@@ -128,7 +148,34 @@ function carritoDOM (arr, e) {
         })
     }
 
+    // Botón Sumar Cantidad Producto
 
+document.getElementById("offcanvas").addEventListener('click', e => carrito.botonSumar(e))
+    
+    function sumarProductoDOM (e) {
+
+        selecCantidades[a]++;  
+        sumaProducto(selecCantidades[a], precioSumable);
+        document.getElementById("cantidadProducto"+a).innerHTML = selecCantidades[a];
+        document.getElementById("totalProducto"+a).innerHTML = selecCantidades[a]*precioSumable;
+        footerTotal.innerHTML = `
+        <td>Total</td>
+        <td>${sumaCantidades(arrMonto)}</td>
+        <td></td>
+        <td id="sumaTotal">${sumaTotal(arrMonto)}</td>
+        `;
+        medalla.innerHTML = `
+        <span class="material-symbols-outlined">shopping_cart</span>${sumaCantidades(arrMonto)}
+        `;
+    }    
+
+    // Botón Quitar Producto - Borrar Producto
+
+document.getElementById("offcanvas").addEventListener('click', e => carrito.botonQuitar(e))
+
+    // Funciones de cálculo de subtotales por producto y cálculo total compra
+
+    // Función aplica descuento
 /*
 
 

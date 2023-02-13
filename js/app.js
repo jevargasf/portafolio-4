@@ -89,6 +89,21 @@ let carrito = {
                 }
             }
         }
+    },
+    sumaCantidades: function () {
+        let arrCantidades = []
+        this.productos.forEach(item => {
+            arrCantidades.push(item.cantidad)
+        })
+        let cantidadTotal = arrCantidades.reduce((a,b) => a+b, 0)
+        return cantidadTotal
+    },
+    sumaTotal: function () {
+        let subtotalProductos = []
+        this.productos.forEach(item =>
+            subtotalProductos.push(item.cantidad*item.precio))
+        let totalProductos = subtotalProductos.reduce((a,b) => a+b, 0)
+        return totalProductos
     }
 }
 
@@ -96,7 +111,10 @@ let carrito = {
 //Recuperar botones Agregar Carrito en el DOM
 
 const contenedorBotones = document.getElementById("contenedorTarjetas")
-contenedorBotones.addEventListener('click', e => {carrito.botonAgregar(e); carritoDOM(carrito.productos, e)})
+contenedorBotones.addEventListener('click', e => {
+    carrito.botonAgregar(e); 
+    carritoDOM(carrito.productos, e, carrito); 
+})
 
 // DOM carrito
 
@@ -105,7 +123,7 @@ const medalla = document.getElementById("medalla");
 const inputDcto = document.getElementById("inputDescuento");
 
 
-function carritoDOM (arr, e) {
+function carritoDOM (arr, e, carro) {
     const cuerpoCarrito = document.getElementById("cuerpoCarrito"); 
     const filaNuevoProducto = document.createElement("tr");
     cuerpoCarrito.appendChild(filaNuevoProducto);
@@ -124,14 +142,14 @@ function carritoDOM (arr, e) {
                 `
                 <tr>
                 <td>Total</td>
-                <td>sumaCantidades(arr)</td>
+                <td>${carro.sumaCantidades()}</td>
                 <td></td>
-                <td id="sumaTotal">sumaTotal(arr)</td>
+                <td id="sumaTotal">${carro.sumaTotal()}</td>
                 </tr>
                 `            
                 ;
             medalla.innerHTML = `
-                <span class="material-symbols-outlined">shopping_cart</span>sumaCantidades(arr)
+                <span class="material-symbols-outlined">shopping_cart</span>${carro.sumaCantidades()}
                 `;
             }
         if (inputDcto.innerHTML === "") {
@@ -150,28 +168,37 @@ function carritoDOM (arr, e) {
 
     // Botón Sumar Cantidad Producto
 
-document.getElementById("offcanvas").addEventListener('click', e => carrito.botonSumar(e))
+document.getElementById("offcanvas").addEventListener('click', e => {
+    carrito.botonSumar(e); 
+    sumarProductoDOM(carrito.productos, e, carrito);
+    })
     
-    function sumarProductoDOM (e) {
-
-        selecCantidades[a]++;  
-        sumaProducto(selecCantidades[a], precioSumable);
-        document.getElementById("cantidadProducto"+a).innerHTML = selecCantidades[a];
-        document.getElementById("totalProducto"+a).innerHTML = selecCantidades[a]*precioSumable;
-        footerTotal.innerHTML = `
-        <td>Total</td>
-        <td>${sumaCantidades(arrMonto)}</td>
-        <td></td>
-        <td id="sumaTotal">${sumaTotal(arrMonto)}</td>
-        `;
-        medalla.innerHTML = `
-        <span class="material-symbols-outlined">shopping_cart</span>${sumaCantidades(arrMonto)}
-        `;
+    function sumarProductoDOM (arr, e, carro) {
+        arr.forEach(item => {
+            if (item.id == e.target.id.slice(1)) {
+                document.getElementById("cantidadProducto"+item.id).innerHTML = item.cantidad;
+                document.getElementById("totalProducto"+item.id).innerHTML = item.cantidad*item.precio;
+                footerTotal.innerHTML = `
+                <td>Tot al</td>
+                <td>${carro.sumaCantidades()}</td>
+                <td></td>
+                <td id="sumaTotal">${carro.sumaTotal()}</td>
+                `;
+                medalla.innerHTML = `
+                <span class="material-symbols-outlined">shopping_cart</span>${carro.sumaCantidades()}
+                `;
+            } 
+        })        
     }    
 
+    
     // Botón Quitar Producto - Borrar Producto
 
 document.getElementById("offcanvas").addEventListener('click', e => carrito.botonQuitar(e))
+
+    function quitarProductoDOM (e) {
+
+    }
 
     // Funciones de cálculo de subtotales por producto y cálculo total compra
 

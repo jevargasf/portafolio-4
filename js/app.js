@@ -85,8 +85,7 @@ let carrito = {
                 if (item.id == e.target.id.slice(1)) {
                     item.cantidad--
                     if (item.cantidad === 0) {
-                        this.productos.filter(prod => prod !== item)
-                        console.log(this.productos)
+                        this.productos = this.productos.filter(prod => prod.cantidad != 0)
                     }
                 }
             }
@@ -216,10 +215,7 @@ document.getElementById("offcanvas").addEventListener('click', e => {
                     medalla.innerHTML = `
                     <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
                     `;
-                if (item.cantidad === 0) {
-                    document.getElementById("filaProducto"+item.id).remove()
-                    e.target.disabled = false
-                    }
+                
                 if (arr.productos.length === 0) {
                         footerTotal.innerHTML = `
                         <td colspan="4">Tu carrito está vacío.</td>
@@ -229,7 +225,11 @@ document.getElementById("offcanvas").addEventListener('click', e => {
                         `;
                         inputDcto.innerHTML = ``;
                     }
-                }
+                } else if (arr.productos.includes(item.e.target.id.slice(1)) === false) {
+                    console.log(true)
+                   // document.getElementById("filaProducto"+e.target.id.slice(1)).remove()
+                  //  e.target.disabled = false
+                    }
             })
         }
 

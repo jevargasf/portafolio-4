@@ -1,3 +1,8 @@
+ // Llamada a funciones localStorage cuando carga la página
+ window.addEventListener('DOMContentLoaded', e => {cargarLocalStorage(); pintarLocalStorage(carrito)})
+
+
+
 //Leer JSON con API fetch
 
 fetch("../data/productos.json")
@@ -10,6 +15,8 @@ fetch("../data/productos.json")
     console.log('error: ' + err)
 })
 
+
+
 function templateProductos (datos) {
     // Template productos
     const containerTarjetas = document.getElementById("contenedorTarjetas")
@@ -18,24 +25,30 @@ function templateProductos (datos) {
     
     datos.forEach(item => {
     // Tarjetas
-        let nombre = templateTarjetas.getElementById("nombre")
-        let precio = templateTarjetas.getElementById("precio")
-        let img = templateTarjetas.getElementById("img")
-        let button = templateTarjetas.getElementById("button")
-        let btnVerMas = templateTarjetas.getElementById("btnVerMas")
+        let nombre = templateTarjetas.querySelector(".card-title.nombre")
+        let precio = templateTarjetas.querySelector(".card-title.precio")
+        let img = templateTarjetas.querySelector(".card-img-top.p-3.img")
+        let button = templateTarjetas.querySelector(".btn.btn-primary.botonAgregar")
+        let btnVerMas = templateTarjetas.querySelector(".btn.btn-secondary.btnVerMas")
         nombre.textContent = item.nombre
         precio.textContent = item.precio
         img.src = item.imagen
         button.dataset.id = item.id
+        button.id = "botonAgregar"+item.id
         btnVerMas.href = "#modalFicha"+item.id
-
+        // Almacenar en arreglo productos valor "true" si producto ya está agregado al carrito
+        for (prod of carrito.productos) {
+            if (prod.id === item.id) {
+                prod["botonAgregar"] = true
+            }
+        }
     // Modals
         let modal = templateTarjetas.querySelector('.modal.fade')
-        let nombreModal = templateTarjetas.getElementById("nombreModal")
-        let precioModal = templateTarjetas.getElementById("precioModal")
-        let descripcionModal = templateTarjetas.getElementById("descripcionModal")
-        let imgModal = templateTarjetas.getElementById("imgModal")
-        let stockModal = templateTarjetas.getElementById("stockModal")
+        let nombreModal = templateTarjetas.querySelector(".card-title.nombreModal")
+        let precioModal = templateTarjetas.querySelector(".card-title.precioModal")
+        let descripcionModal = templateTarjetas.querySelector(".card-text.descripcionModal")
+        let imgModal = templateTarjetas.querySelector(".img-fluid.w-100.p-3.imgModal")
+        let stockModal = templateTarjetas.querySelector(".card-header.stockModal")
         modal.id = 'modalFicha'+item.id
         nombreModal.textContent = item.nombre
         precioModal.textContent = item.precio
@@ -45,12 +58,21 @@ function templateProductos (datos) {
 
         const clonTarjeta = templateTarjetas.cloneNode(true)
         fragmentTarjetas.appendChild(clonTarjeta)
+
     })
 
     containerTarjetas.appendChild(fragmentTarjetas)
 
+    // Código para desactivar botón de productos almacenados en localStorage
+    carrito.productos.forEach( item => {
+        if (item.botonAgregar === true) {
+            document.getElementById("botonAgregar"+item.id).disabled = true
+            console.log(carrito.productos)
+        }})
+
 }
 
+// Arreglo productos carrito y métodos para manipularlo
 let carrito = {
     productos: [],
     dataProductos: [],
@@ -66,15 +88,19 @@ let carrito = {
                     producto["cantidad"] = 1
                     this.productos.push(producto)
                     e.target.disabled = true
+                    localStorage.getItem("carrito")
+                    localStorage.setItem("carrito", JSON.stringify(this.productos))
                 }
             })
         }
     },
     botonSumar: function (e) {
-        if (e.target.className === 'btn btn-info p-1 botonAgregar') {
+        if (e.target.className === 'btn btn-info p-1 botonSumar') {
             for (item of this.productos) {
                 if (item.id == e.target.id.slice(1)) {
                     item.cantidad++
+                    localStorage.getItem("carrito")
+                    localStorage.setItem("carrito", JSON.stringify(this.productos))
                 }
             }
         }
@@ -84,6 +110,8 @@ let carrito = {
             for (item of this.productos) {
                 if (item.id == e.target.id.slice(1)) {
                     item.cantidad--
+                    localStorage.getItem("carrito")
+                    localStorage.setItem("carrito", JSON.stringify(this.productos))
                     if (item.cantidad === 0) {
                         break
                     }
@@ -96,6 +124,8 @@ let carrito = {
             for (item of this.productos) {
                 if (item.id == e.target.id.slice(1)) {
                         this.productos = this.productos.filter(prod => prod.id != e.target.id.slice(1))
+                        localStorage.getItem("carrito")
+                        localStorage.setItem("carrito", JSON.stringify(this.productos))
                 }
             }
         }
@@ -117,12 +147,14 @@ let carrito = {
     }
 }
 
+
+
 // Función pintar carrito y DOM botón agregar producto
 
 const contenedorBotones = document.getElementById("contenedorTarjetas")
 contenedorBotones.addEventListener('click', e => {
     carrito.botonAgregar(e); 
-    carritoDOM(carrito, e); 
+    carritoDOM(carrito, e);
 })
 
 const footerTotal = document.getElementById("totalCarrito");
@@ -142,7 +174,7 @@ function carritoDOM (arr, e) {
                 <td>${item.nombre} <button type="button" class="btn btn-link botonEliminar" id="E${item.id}">Eliminar</button></td>
                 <td class="cantidades p-auto" id="cantidadProducto${item.id}">${item.cantidad}</td>
                 <td><button type="button" class="btn btn-danger botonQuitar p-1" id="Q${item.id}">-</button>
-                <button type="button" class="btn btn-info p-1 botonAgregar" id="A${item.id}" value="1">+</button></td>
+                <button type="button" class="btn btn-info p-1 botonSumar" id="A${item.id}" value="1">+</button></td>
                 <td id="totalProducto${item.id}">${item.precio}</td>
                 `;   
 
@@ -159,6 +191,9 @@ function carritoDOM (arr, e) {
             medalla.innerHTML = `
                 <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
                 `;
+                // Desactivar botón quitar en offcanvas para cantidad = 1
+                document.getElementById("Q"+e.target.dataset.id).disabled = true
+
             }
         if (inputDcto.innerHTML === "") {
             inputDcto.innerHTML =
@@ -186,7 +221,7 @@ document.getElementById("offcanvas").addEventListener('click', e => {
             if (item.id == e.target.id.slice(1)) {
                 document.getElementById("cantidadProducto"+item.id).innerHTML = item.cantidad;
                 document.getElementById("totalProducto"+item.id).innerHTML = item.cantidad*item.precio;
-                footerTotal.innerHTML = `
+                footerTotal.innerHTML += `
                 <td>Tot al</td>
                 <td>${arr.sumaCantidades()}</td>
                 <td></td>
@@ -195,7 +230,7 @@ document.getElementById("offcanvas").addEventListener('click', e => {
                 medalla.innerHTML = `
                 <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
                 `;
-                //console.log(item.cantidad)
+                // Habilitar botón quitar cuando cantidad > 1
                 if (item.cantidad > 1) {
                     document.getElementById("Q"+e.target.id.slice(1)).disabled = false
                 }
@@ -226,7 +261,7 @@ document.getElementById("offcanvas").addEventListener('click', e => {
                     medalla.innerHTML = `
                     <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
                     `;
-                    // deshabilitar botón quitar cuando cantidad producto = 0
+                    // Deshabilitar botón quitar cuando cantidad producto = 0
                     if (item.cantidad === 1) {
                         document.getElementById("Q"+e.target.id.slice(1)).disabled = true
                     }
@@ -264,6 +299,7 @@ document.getElementById("offcanvas").addEventListener('click', e => {
                 `;
                 inputDcto.innerHTML = ``;
                 }
+            // Reactivar botón agregar cuando producto es eliminado del carrito
             document.getElementsByClassName("btn btn-primary botonAgregar")[e.target.id.slice(1) - 1].disabled = false
         }
 
@@ -289,3 +325,63 @@ function aplicaDescuento (arr, e) {
         
     }
 }
+
+// Manipulación de localStorage
+
+    // Recuperar data almacenada en localStorage
+function cargarLocalStorage () {
+    carrito.productos = JSON.parse(localStorage.getItem("carrito"))
+}
+
+    // Función para pintar en el carrito la data almacenada en localStorage
+function pintarLocalStorage (arr) {
+    const cuerpoCarrito = document.getElementById("cuerpoCarrito"); 
+
+
+    arr.productos.forEach(item => {
+        const filaNuevoProducto = document.createElement("tr");
+    filaNuevoProducto.setAttribute("id", "filaProducto"+item.id)
+        filaNuevoProducto.innerHTML += `
+                <td>${item.nombre} <button type="button" class="btn btn-link botonEliminar" id="E${item.id}">Eliminar</button></td>
+                <td class="cantidades p-auto" id="cantidadProducto${item.id}">${item.cantidad}</td>
+                <td><button type="button" class="btn btn-danger botonQuitar p-1" id="Q${item.id}">-</button>
+                <button type="button" class="btn btn-info p-1 botonSumar" id="A${item.id}" value="1">+</button></td>
+                <td id="totalProducto${item.id}">${item.precio}</td>
+                `;   
+        filaNuevoProducto.setAttribute("id", "filaProducto"+item.id)
+            footerTotal.innerHTML = 
+                `
+                <tr>
+                <td>Total</td>
+                <td>${arr.sumaCantidades()}</td>
+                <td></td>
+                <td id="sumaTotal">${arr.sumaTotal()}</td>
+                </tr>
+                `            
+                ;
+            medalla.innerHTML = `
+                <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
+                `;
+            
+        if (inputDcto.innerHTML === "") {
+            inputDcto.innerHTML =
+                `
+                <td colspan="4">
+                <div class="input-group">
+                <input type="text" class="form-control" placeholder="Ingresa código descuento" aria-label="Username" aria-describedby="input-group-button-right" id="textoDescuento">
+                <button type="button" class="btn btn-outline-secondary" id="input-group-button-right">Aplicar</button>
+                </div>
+                </td>
+                `
+            }
+            
+            cuerpoCarrito.appendChild(filaNuevoProducto);
+            // Desactivar botón quitar si cantidad = 1
+            if (item.cantidad === 1) {
+                document.getElementById("Q"+item.id).disabled = true
+                }
+        })
+}
+
+
+

@@ -1,6 +1,11 @@
 //Leer JSON con API fetch
 
-fetch("../data/productos.json")
+fetch("../data/productos.json", {
+    method: "GET",
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
 .then(res => res.json())
 .then(data => {
     templateProductos(data);

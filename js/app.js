@@ -1,8 +1,3 @@
- // Llamada a funciones localStorage cuando carga la página
- window.addEventListener('DOMContentLoaded', e => {cargarLocalStorage(); pintarLocalStorage(carrito)})
-
-
-
 //Leer JSON con API fetch
 
 fetch("../data/productos.json")
@@ -27,7 +22,7 @@ function templateProductos (datos) {
     // Tarjetas
         let nombre = templateTarjetas.querySelector(".card-title.nombre")
         let precio = templateTarjetas.querySelector(".card-title.precio")
-        let img = templateTarjetas.querySelector(".card-img-top.p-3.img")
+        let img = templateTarjetas.querySelector(".card-img-top.object-fit-none.p-3.img")
         let button = templateTarjetas.querySelector(".btn.btn-primary.botonAgregar")
         let btnVerMas = templateTarjetas.querySelector(".btn.btn-secondary.btnVerMas")
         nombre.textContent = item.nombre
@@ -67,7 +62,6 @@ function templateProductos (datos) {
     carrito.productos.forEach( item => {
         if (item.botonAgregar === true) {
             document.getElementById("botonAgregar"+item.id).disabled = true
-            console.log(carrito.productos)
         }})
 
 }
@@ -86,6 +80,7 @@ let carrito = {
                     producto["nombre"] = item.nombre
                     producto["precio"] = item.precio
                     producto["cantidad"] = 1
+                    producto["imagen"] = item.imagen
                     this.productos.push(producto)
                     e.target.disabled = true
                     localStorage.getItem("carrito")
@@ -160,7 +155,7 @@ contenedorBotones.addEventListener('click', e => {
 const footerTotal = document.getElementById("totalCarrito");
 const medalla = document.getElementById("medalla"); 
 const inputDcto = document.getElementById("inputDescuento");
-
+const irCarrito = document.getElementById("irCarrito")
 
 function carritoDOM (arr, e) {
     const cuerpoCarrito = document.getElementById("cuerpoCarrito"); 
@@ -186,8 +181,16 @@ function carritoDOM (arr, e) {
                 <td></td>
                 <td id="sumaTotal">${arr.sumaTotal()}</td>
                 </tr>
+
                 `            
                 ;
+            irCarrito.innerHTML = `
+                <tr>
+                <td colspan="4">
+                <a href="./assets/carrito.html" class="btn btn-primary active d-block" role="button">Ver carrito</a>
+                </td>
+                </tr>
+            `
             medalla.innerHTML = `
                 <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
                 `;
@@ -298,7 +301,9 @@ document.getElementById("offcanvas").addEventListener('click', e => {
                 <span class="material-symbols-outlined">shopping_cart</span>
                 `;
                 inputDcto.innerHTML = ``;
+                irCarrito.innerHTML = ``;
                 }
+
             // Reactivar botón agregar cuando producto es eliminado del carrito
             document.getElementsByClassName("btn btn-primary botonAgregar")[e.target.id.slice(1) - 1].disabled = false
         }
@@ -362,7 +367,13 @@ function pintarLocalStorage (arr) {
             medalla.innerHTML = `
                 <span class="material-symbols-outlined">shopping_cart</span>${arr.sumaCantidades()}
                 `;
-            
+            irCarrito.innerHTML = `
+                <tr>
+                <td colspan="4">
+                <a href="./assets/carrito.html" class="btn btn-primary active d-block" role="button">Ver carrito</a>
+                </td>
+                </tr>
+            `   
         if (inputDcto.innerHTML === "") {
             inputDcto.innerHTML =
                 `
@@ -384,4 +395,35 @@ function pintarLocalStorage (arr) {
 }
 
 
+// Página carrito
 
+/* INNER HTML PARA PRODUCTOSCARRITO
+<div class="row p-3">
+            <div class="col-4 text-center">    
+                <div class="text">
+                    <p class="card-text">Producto</p>                
+                </div>         
+            </div>
+            <div class="col-4 text-center">            
+                <p class="card-text">Cantidad</p>                
+            </div>
+            <div class="col-4 text-center">
+                <p class="card-text">Precio</p>                
+            </div>
+        </div>
+        <div class="row p-3">
+            <div class="col-4 d-flex align-items-center justify-content-around">
+                <img src="" class="img-fluid w-25 imagen" alt="card-horizontal-image">
+                <h6 class="card-title nombre"></h6>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">            
+                <p class="card-text cantidad"></p>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <h4 class="card-title precio"></h4>
+            </div>
+        </div>
+*/
+
+ // Llamada a funciones localStorage cuando carga la página
+ window.addEventListener('DOMContentLoaded', e => {cargarLocalStorage(); pintarLocalStorage(carrito)})

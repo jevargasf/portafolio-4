@@ -26,30 +26,13 @@
           </li>
         
           <li class="nav-item">
-            <a class="nav-link" href="#">Ofertas Especiales</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Productos
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Instrumentos Cuerdas</a></li>
-              <li><a class="dropdown-item" href="#">Percusión</a></li>
-              <li><a class="dropdown-item" href="#">Pianos y Teclados</a></li>
-              <li><a class="dropdown-item" href="#">Vientos</a></li>
-              <li><a class="dropdown-item" href="#">Home Studio</a></li>
-              <li><a class="dropdown-item" href="#">Sonido</a></li>
-            </ul>
+            <a class="nav-link" href="./assets/nosotros.html">Nuestra tienda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Contacto</a>
+            <a class="nav-link" href="./assets/contacto.html" tabindex="-1" aria-disabled="true">Contacto</a>
           </li>
         </ul>
-        <form class="d-flex me-auto">
-          <input class="form-control me-2" type="search" placeholder="Busca productos" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
-
+        
   <!-- Modal ingreso usuarios -->
         <!-- Modal inicio sesión -->
   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -128,10 +111,10 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Producto</th>
-                    <th scope="col">Cantidad</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
                     <th></th>
-                    <th scope="col">Total</th>
+                    <th>Total</th>
                   </tr>
                 </thead>
                 <tbody id="cuerpoCarrito">
@@ -141,6 +124,7 @@
                   <tr id="totalCarrito">
                     <td colspan="4">Tu carrito está vacío.</td>
                   </tr>
+                  <tr id="irCarrito"></tr>
                 </tfoot>
               </table>
             </div>
@@ -166,10 +150,10 @@
 <!-- Templates -->
   <!-- Tarjetas productos -->
 <template id="templateTarjetas">
-  <div class="col d-flex align-items-lg-stretch">
+  <div class="col-3 d-flex">
 
-  <div class="card tarjetaProducto">
-    <img class="card-img-top p-3 img" alt="card-grid-image">
+  <div class="card d-flex tarjetaProducto">
+    <img class="card-img-top object-fit-none p-3 img" alt="card-grid-image">
     <div class="card-body d-flex flex-column">
         <h5 class="card-title nombre"></h5>
         <h4 class="card-title precio"></h4>

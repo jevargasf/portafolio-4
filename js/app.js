@@ -1,6 +1,6 @@
 //Leer JSON con API fetch
 
-fetch("../data/productos.json", {
+fetch("https://jevargasf.github.io/portafolio-4/data/productos.json", {
     method: "GET",
     headers: {
         'Content-Type': 'application/json'

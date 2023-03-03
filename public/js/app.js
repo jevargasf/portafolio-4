@@ -1,23 +1,13 @@
-
-//Leer JSON con API fetch
-const url = '../data/productos.json'
+    //Leer JSON con API fetch
+    const url = '../public/data/productos.json'
 
  // Llamada a funciones localStorage cuando carga la página
  window.addEventListener('DOMContentLoaded', e => {loadJSON()
     .then(()=>(cargarLocalStorage()))
     .then(()=> pintarLocalStorage(carrito))})
 
-/*fetch(url)
-.then(res => res.json())
-.then(data => {
-    templateProductos(data);
-    carrito.getData(data);
-    })
-.catch(function (err) {
-    console.log('error: ' + err)
-})*/
-
 async function  loadJSON() {
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -47,7 +37,7 @@ function templateProductos (datos) {
         let btnVerMas = templateTarjetas.querySelector(".btn.btn-secondary.btnVerMas")
         nombre.textContent = item.nombre
         precio.textContent = item.precio
-        img.src = item.imagen
+        img.src = './public'+item.imagen
         button.dataset.id = item.id
         button.id = "botonAgregar"+item.id
         btnVerMas.href = "#modalFicha"+item.id

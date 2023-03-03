@@ -153,14 +153,19 @@
   <div class="col-3 d-flex">
 
   <div class="card d-flex tarjetaProducto">
-    <img class="card-img-top object-fit-none p-3 img" alt="card-grid-image">
+    <div class="container text-center" >
+      <img class="card-img-top object-fit-contain p-3 img" style="height: 10rem; width: auto;" alt="card-grid-image">
+    </div>
     <div class="card-body d-flex flex-column">
+
         <h5 class="card-title nombre"></h5>
         <h4 class="card-title precio"></h4>
+
         <div class="d-grid gap-2 d-md-flex justify-content-around mt-auto">
             <a class="btn btn-secondary btnVerMas" data-bs-toggle="modal" href="#" role="button">Ver más</a>
             <button type="button" class="btn btn-primary botonAgregar">Agregar al carrito</button>
         </div>
+      </div>
     </div>
   </div>
 </div>

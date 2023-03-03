@@ -32,7 +32,7 @@ function templateProductos (datos) {
     // Tarjetas
         let nombre = templateTarjetas.querySelector(".card-title.nombre")
         let precio = templateTarjetas.querySelector(".card-title.precio")
-        let img = templateTarjetas.querySelector(".card-img-top.object-fit-none.p-3.img")
+        let img = templateTarjetas.querySelector(".card-img-top.object-fit-contain.p-3.img")
         let button = templateTarjetas.querySelector(".btn.btn-primary.botonAgregar")
         let btnVerMas = templateTarjetas.querySelector(".btn.btn-secondary.btnVerMas")
         nombre.textContent = item.nombre

@@ -3,6 +3,7 @@ async function  loadJSON() {
     fetch("./data/productos.json")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         templateProductos(data);
         carrito.getData(data); 
       })

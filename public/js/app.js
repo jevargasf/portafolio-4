@@ -355,7 +355,7 @@ function aplicaDescuento (arr, e) {
 
     // Recuperar data almacenada en localStorage
 function cargarLocalStorage () {
-    localStorage.getItem("carrito")!==null? carrito.productos = JSON.parse(localStorage.getItem("carrito")) : carrito.productos = []
+    carrito.productos = JSON.parse(localStorage.getItem("carrito")) || []
 }
 
     // Función para pintar en el carrito la data almacenada en localStorage

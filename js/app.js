@@ -1,6 +1,6 @@
 
 //Leer JSON con API fetch
-const url = '../data/productos.json' || 'https://jevargasf.github.io/portafolio-4/data/productos.json'
+const url = '../data/productos.json'
 
 
 fetch(url)
@@ -17,11 +17,11 @@ async function  loadJSON() {
     fetch("./data/productos.json")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         templateProductos(data);
         carrito.getData(data); 
       })
-      .catch((error) => {
+      .catch((err) => {
+        console.log('error: ' + err)
         alert(`Usa live server`);
       });
   }

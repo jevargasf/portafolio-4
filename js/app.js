@@ -1,18 +1,9 @@
+
 //Leer JSON con API fetch
 const url = '../data/productos.json' || 'https://jevargasf.github.io/portafolio-4/data/productos.json'
 
-<<<<<<< Updated upstream
 
 fetch(url)
-=======
-fetch("../data/productos.json", {
-    method: "GET",
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    mode: 'no-cors'
-})
->>>>>>> Stashed changes
 .then(res => res.json())
 .then(data => {
     templateProductos(data);
@@ -21,6 +12,20 @@ fetch("../data/productos.json", {
 .catch(function (err) {
     console.log('error: ' + err)
 })
+
+async function  loadJSON() {
+    fetch("./data/productos.json")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        templateProductos(data);
+        carrito.getData(data); 
+      })
+      .catch((error) => {
+        alert(`Usa live server`);
+      });
+  }
+
 
 
 
@@ -438,4 +443,6 @@ function pintarLocalStorage (arr) {
 */
 
  // Llamada a funciones localStorage cuando carga la página
- window.addEventListener('DOMContentLoaded', e => {cargarLocalStorage(); pintarLocalStorage(carrito)})
+ window.addEventListener('DOMContentLoaded', e => {loadJSON()
+    .then(()=>(cargarLocalStorage()))
+    .then(()=> pintarLocalStorage(carrito))})

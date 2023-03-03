@@ -10,7 +10,7 @@ console.log()
 
     // Recuperar data almacenada en localStorage
     function cargarLocalStorage () {
-        carrito.productos = JSON.parse(localStorage.getItem("carrito"))
+        carrito.productos = JSON.parse(localStorage.getItem("carrito")) || []
     }
 
 

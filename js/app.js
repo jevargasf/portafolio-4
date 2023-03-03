@@ -1,11 +1,18 @@
 //Leer JSON con API fetch
+const url = '../data/productos.json' || 'https://jevargasf.github.io/portafolio-4/data/productos.json'
 
-fetch("https://jevargasf.github.io/portafolio-4/data/productos.json", {
+<<<<<<< Updated upstream
+
+fetch(url)
+=======
+fetch("../data/productos.json", {
     method: "GET",
     headers: {
         'Content-Type': 'application/json'
-    }
+    },
+    mode: 'no-cors'
 })
+>>>>>>> Stashed changes
 .then(res => res.json())
 .then(data => {
     templateProductos(data);
@@ -340,7 +347,7 @@ function aplicaDescuento (arr, e) {
 
     // Recuperar data almacenada en localStorage
 function cargarLocalStorage () {
-    carrito.productos = JSON.parse(localStorage.getItem("carrito"))
+    carrito.productos = JSON.parse(localStorage.getItem("carrito")) || []
 }
 
     // Función para pintar en el carrito la data almacenada en localStorage

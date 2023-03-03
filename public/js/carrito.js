@@ -6,7 +6,7 @@
  const cuerpoCarrito = document.getElementById("cuerpoCarrito"); 
  const footerTotal = document.getElementById("totalCarrito");
  const inputDcto = document.getElementById("inputDcto")
-console.log()
+
 
     // Recuperar data almacenada en localStorage
     function cargarLocalStorage () {
@@ -35,7 +35,7 @@ console.log()
                 const filaNuevoProducto = document.createElement("tr");
                 filaNuevoProducto.setAttribute("id", "filaProducto"+item.id)
                     filaNuevoProducto.innerHTML += `
-                            <td colspan=""><img src=".${item.imagen}" class="img-fluid" width="100" alt="img-alt"></td>
+                            <td colspan=""><img src="..${item.imagen}" class="img-fluid" width="100" alt="img-alt"></td>
                             <td class="">${item.nombre}<button type="button" class="btn btn-link botonEliminar" id="E${item.id}">Eliminar</button></td>   
                             <td class="cantidades" id="cantidadProducto${item.id}">${item.cantidad}</td>
                             <td class=""><button type="button" class="btn btn-danger botonQuitar p-auto" id="Q${item.id}">-</button>

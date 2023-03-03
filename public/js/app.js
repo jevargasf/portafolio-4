@@ -2,8 +2,12 @@
 //Leer JSON con API fetch
 const url = '../data/productos.json'
 
+ // Llamada a funciones localStorage cuando carga la página
+ window.addEventListener('DOMContentLoaded', e => {loadJSON()
+    .then(()=>(cargarLocalStorage()))
+    .then(()=> pintarLocalStorage(carrito))})
 
-fetch(url)
+/*fetch(url)
 .then(res => res.json())
 .then(data => {
     templateProductos(data);
@@ -11,10 +15,10 @@ fetch(url)
     })
 .catch(function (err) {
     console.log('error: ' + err)
-})
+})*/
 
 async function  loadJSON() {
-    fetch("./data/productos.json")
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         templateProductos(data);
@@ -22,7 +26,6 @@ async function  loadJSON() {
       })
       .catch((err) => {
         console.log('error: ' + err)
-        alert(`Usa live server`);
       });
   }
 
@@ -65,7 +68,7 @@ function templateProductos (datos) {
         nombreModal.textContent = item.nombre
         precioModal.textContent = item.precio
         descripcionModal.textContent = item.descripcion
-        imgModal.src = item.imagen
+        imgModal.src = './public'+item.imagen
         stockModal.textContent = `Stock: Quedan ${item.stock} disponibles.`
 
         const clonTarjeta = templateTarjetas.cloneNode(true)
@@ -352,7 +355,7 @@ function aplicaDescuento (arr, e) {
 
     // Recuperar data almacenada en localStorage
 function cargarLocalStorage () {
-    carrito.productos = JSON.parse(localStorage.getItem("carrito")) || []
+    localStorage.getItem("carrito")!==null? carrito.productos = JSON.parse(localStorage.getItem("carrito")) : carrito.productos = []
 }
 
     // Función para pintar en el carrito la data almacenada en localStorage
@@ -412,37 +415,3 @@ function pintarLocalStorage (arr) {
 }
 
 
-// Página carrito
-
-/* INNER HTML PARA PRODUCTOSCARRITO
-<div class="row p-3">
-            <div class="col-4 text-center">    
-                <div class="text">
-                    <p class="card-text">Producto</p>                
-                </div>         
-            </div>
-            <div class="col-4 text-center">            
-                <p class="card-text">Cantidad</p>                
-            </div>
-            <div class="col-4 text-center">
-                <p class="card-text">Precio</p>                
-            </div>
-        </div>
-        <div class="row p-3">
-            <div class="col-4 d-flex align-items-center justify-content-around">
-                <img src="" class="img-fluid w-25 imagen" alt="card-horizontal-image">
-                <h6 class="card-title nombre"></h6>
-            </div>
-            <div class="col-4 d-flex align-items-center justify-content-center">            
-                <p class="card-text cantidad"></p>
-            </div>
-            <div class="col-4 d-flex align-items-center justify-content-center">
-                <h4 class="card-title precio"></h4>
-            </div>
-        </div>
-*/
-
- // Llamada a funciones localStorage cuando carga la página
- window.addEventListener('DOMContentLoaded', e => {loadJSON()
-    .then(()=>(cargarLocalStorage()))
-    .then(()=> pintarLocalStorage(carrito))})
